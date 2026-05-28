@@ -126,15 +126,6 @@ function Portfolio() {
       <section className="relative isolate overflow-hidden bg-grid pt-32 pb-24 md:pt-40 md:pb-32">
         <Particles />
         <div className="relative mx-auto max-w-4xl px-6 text-center">
-          <div className="mx-auto mb-8 h-32 w-32 overflow-hidden rounded-full border-2 border-primary/60 p-1 shadow-[0_0_60px_-10px_oklch(0.52_0.22_264/0.6)]">
-            <img
-              src={profilePic}
-              alt="Kirk Ludwig Galura"
-              width={512}
-              height={512}
-              className="h-full w-full rounded-full object-cover"
-            />
-          </div>
           <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-border bg-surface/50 px-3 py-1 text-xs text-muted-foreground backdrop-blur">
             <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
             Available for new projects
