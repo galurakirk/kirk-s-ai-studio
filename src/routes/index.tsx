@@ -193,7 +193,7 @@ function Portfolio() {
             />
           </p>
           <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
-            I design and build AI-powered automation systems for US and UK-based businesses — from
+            I design and build AI-powered automation systems for clients worldwide — from
             data ingestion pipelines and RAG agents to CRM workflows and voice AI integrations.
           </p>
           <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
