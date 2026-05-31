@@ -37,24 +37,74 @@ const experience = [
     role: "Automation Specialist",
     period: "2025–2026",
     location: "UK (Remote)",
-    description:
-      "Built an AI-powered YouTube transcript ingestion pipeline, Graph RAG pre-processing workflows, dynamic Pinecone retrieval systems, and a grounded OpenAI Tools Agent — enabling a client to process 1,000+ documents with zero manual intervention.",
+    bullets: [
+      "Designed and deployed an end-to-end YouTube transcript ingestion pipeline in n8n — reading URLs from Google Sheets, scraping transcripts via Apify, and handling errors (invalid IDs, missing captions) — enabling the client to ingest 1,000+ videos with zero manual intervention.",
+      "Built a text & metadata preprocessing pipeline that cleaned raw transcripts and generated structured metadata (doc_id, title, URL, category, topic keywords), storing outputs in PostgreSQL and Pinecone for downstream RAG use — cutting data preparation time from hours to minutes per batch.",
+      "Implemented a Graph RAG pre-processing workflow using an LLM to extract subject–relation–object triples from transcripts, normalize them with custom JavaScript, and upsert into PostgreSQL entity/edge tables — improving answer accuracy by enriching retrieval with relational context.",
+      "Developed a dynamic retrieval system with layered Pinecone filters (category + topic keywords), with automatic fallback to unfiltered search — increasing query recall without sacrificing metadata precision.",
+      "Orchestrated a Tools Agent (OpenAI) that selects between filtered/unfiltered Pinecone tools, retrieves grounded context, and delivers answers strictly based on transcript and graph data — reducing hallucination risk and improving client confidence in AI responses.",
+      "Created an alias and topic management layer that merged entity aliases and deduplicated topic keywords — improving retrieval recall across varied user phrasings without loosening metadata guardrails.",
+    ],
   },
   {
     company: "Scale Ops",
     role: "Automation Specialist",
     period: "2024–2025",
     location: "USA (Remote)",
-    description:
-      "Led automation across HR, sales, and operations using n8n, Airtable, and Go High Level — standardizing 10+ workflows and reducing per-process manual effort by 60–70%.",
+    bullets: [
+      "Led automation development across HR, sales, and operations using n8n, Airtable, and Go High Level — standardizing 10+ recurring workflows and reducing per-process manual effort by an estimated 60–70%.",
+      "Designed an end-to-end HR Automation Workflow covering candidate intake, email notifications, Airtable status tracking, and Slack alerts — cutting candidate response time from days to under 2 hours.",
+      "Built a Restaurant Booking automation system integrating form inputs, calendar APIs, and CRM — fully automating scheduling, confirmation emails, and customer notifications with zero manual touchpoints.",
+      "Managed API integrations across Gmail, Google Sheets, Calendly, Slack, and internal webhooks, ensuring real-time data sync and uptime across all live workflows.",
+      "Created technical SOPs and workflow documentation for all automations, enabling seamless team handoffs and reducing onboarding time for new team members by standardizing replicable build patterns.",
+      "Developed lead funnel automations and CRM pipeline designs in Go High Level — supporting client acquisition workflows and reducing lead response lag through trigger-based follow-up sequences.",
+    ],
   },
   {
     company: "Get Ninja",
     role: "Automation Specialist",
     period: "2023–2024",
     location: "Remote",
+    bullets: [
+      "Engineered scalable no-code/low-code automation workflows for clients across multiple industries using n8n, Airtable, and Go High Level, reducing task creation time by over 80% through trigger-based project generation.",
+      "Designed CRM automations for lead nurturing, auto-responses, and appointment scheduling — improving lead engagement rates through timely, pipeline-stage-aware follow-up sequences.",
+      "Unified fragmented business processes by integrating Calendly, Gmail, Slack, Go High Level, and Trello into centralized workflows — eliminating manual handoffs between platforms.",
+      "Produced invoice automation systems that generated PDFs and delivered them via email on form submission or client request — removing a previously manual billing step entirely.",
+      "Built a cross-platform calendar sync between Airtable, Go High Level, and Google Calendar — eliminating scheduling conflicts and keeping all stakeholders updated in real time.",
+      "Created post-completion feedback workflows that automatically triggered surveys, updated CRM records, and notified staff — closing the loop on service delivery without manual intervention.",
+    ],
+  },
+  {
+    company: "DreamCraft Holdings",
+    role: "Bookkeeper",
+    period: "2023",
+    location: "USA (Remote)",
     description:
-      "Engineered no-code/low-code automation workflows across multiple industries, reducing task creation time by 80%+ through trigger-based systems and CRM pipeline design.",
+      "Managed multi-location bank reconciliations using QuickBooks, identifying process inefficiencies that shaped a later career pivot into automation.",
+  },
+  {
+    company: "JPS iDesign",
+    role: "Bookkeeper & Admin Officer",
+    period: "2022–2023",
+    location: "San Fernando, Philippines",
+    description:
+      "Owned full-cycle bookkeeping and operational purchasing across a construction and design firm, developing process-thinking and coordination skills applied directly to automation design. Also managed bookkeeping for a sister business under the same ownership.",
+  },
+  {
+    company: "HOLA",
+    role: "Store Manager",
+    period: "2021–2022",
+    location: "Tarlac City, Philippines",
+    description:
+      "Managed store operations, inventory tracking, employee scheduling, and weekly performance data reporting.",
+  },
+  {
+    company: "TaskUs",
+    role: "Customer Service Representative",
+    period: "2021",
+    location: "Angeles City, Philippines",
+    description:
+      "Handled high-volume customer support for Deliveroo, developing communication and time-management skills in a fast-paced, SLA-driven environment.",
   },
 ];
 
