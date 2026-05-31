@@ -223,7 +223,7 @@ function Portfolio() {
           <div className="reveal space-y-5 text-base leading-relaxed text-muted-foreground md:text-lg">
             <p>
               I'm an AI Automation Specialist with 3+ years of experience building end-to-end
-              workflow systems for US and UK-based clients. My work sits at the intersection of n8n,
+              workflow systems for clients worldwide. My work sits at the intersection of n8n,
               large language models, and real business problems — from RAG knowledge retrieval
               agents and vector database pipelines to CRM automations and AI voice integrations.
             </p>
