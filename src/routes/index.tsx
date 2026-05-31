@@ -123,42 +123,96 @@ const skillGroups = [
   { label: "Other", items: ["VAPI", "ClickUp", "Notion", "CRM Design", "BPA"] },
 ];
 
-const projects = [
+const projects: Project[] = [
   {
     title: "RAG Agent & AI Knowledge Retrieval System",
     tags: ["n8n", "Pinecone", "OpenAI", "Graph RAG"],
     description:
       "Built a full RAG system that lets users query a large knowledge base conversationally. Includes Graph RAG pre-processing, alias normalization, and a grounded Tools Agent that answers strictly from retrieved content.",
+    image: ragAgentImg,
+    caseStudy: {
+      problem:
+        "The client had a growing knowledge base of processed transcripts and documents but no efficient way for users to extract insights from it. Manual search was slow and surface-level — users couldn't ask natural-language questions and get grounded, accurate answers. The business needed an intelligent interface that could retrieve contextually relevant information and generate reliable responses without hallucinating or going off-source.",
+      built:
+        "I built a full Retrieval-Augmented Generation (RAG) system connecting the Pinecone knowledge base to an AI-powered query interface. Query intake and embedding conversion matches user questions against Pinecone in real time. Layered retrieval logic uses dynamic metadata filters with automatic fallback to unfiltered search. A Graph RAG pre-processing layer extracted subject–relation–object triples from transcripts using an LLM, normalized them with custom JavaScript, and stored entity and edge relationships in PostgreSQL for relational context enrichment. An alias and topic management system merged entity variations and deduplicated keywords. An OpenAI Tools Agent selects between filtered and unfiltered Pinecone tools, assembles retrieved context, and generates answers strictly grounded in the knowledge base.",
+      result:
+        "Users can now interact with the entire knowledge base conversationally — asking natural-language questions and receiving accurate, source-grounded answers in seconds. Retrieval accuracy improved significantly over keyword search, and the Graph RAG layer added relational context that standard vector retrieval misses. The system transformed a static document archive into a practical AI assistant, reducing research time and improving decision-making speed for the client's team.",
+    },
   },
   {
     title: "AI Ingest Pipeline",
     tags: ["n8n", "OpenAI API", "Apify", "PostgreSQL"],
     description:
       "Automated end-to-end ingestion of 1,000+ documents — collecting, cleaning, extracting metadata, and routing structured outputs for downstream AI use with zero manual intervention.",
+    image: ingestPipelineImg,
+    caseStudy: {
+      problem:
+        "A client needed to process large volumes of unstructured content — transcripts, documents, and raw text — before it could be used downstream. Each file required manual review, formatting cleanup, metadata extraction, and storage preparation. As incoming data volume grew, the process broke down: it was slow, inconsistent, and impossible to scale without adding headcount.",
+      built:
+        "I designed and built a fully automated AI ingest pipeline in n8n that eliminated every manual step in the data intake process. It automated document and transcript collection from Google Sheets, direct uploads, and webhooks. AI-powered cleaning and formatting via the OpenAI API removed noise, fixed structure, and standardized output. A metadata extraction layer auto-generated doc_id, title, source URL, category, and topic keywords for each document. Validation and routing logic handled edge cases — duplicate detection, malformed inputs, and retry handling on failed API calls. Structured outputs fed directly into downstream PostgreSQL and Pinecone storage.",
+      result:
+        "The pipeline fully automated what was previously a manual, multi-hour process per batch. The client can now ingest 1,000+ documents with zero manual intervention, with consistent structure and metadata across every record. Operational bottlenecks were eliminated, data quality improved measurably, and the pipeline established the foundation for the downstream RAG retrieval system.",
+    },
   },
   {
     title: "AI Pre-Processing & Pinecone Integration",
     tags: ["n8n", "Pinecone", "OpenAI Embeddings"],
     description:
       "Built a chunking, embedding, and vector storage pipeline that transformed a raw document library into a semantically searchable AI knowledge base.",
+    image: preprocessingPineconeImg,
+    caseStudy: {
+      problem:
+        "After ingesting raw content, the client had no scalable way to store or search it intelligently. Traditional keyword-based search returned poor results across large document sets, and there was no structured process for transforming cleaned text into AI-retrievable assets. The business needed a pipeline that could prepare data for semantic search at scale — consistently, automatically, and without manual oversight.",
+      built:
+        "I built a pre-processing and vector storage workflow that transformed cleaned documents into searchable AI-ready knowledge assets. Automated document chunking logic split large texts into optimized segments. Embedding generation via OpenAI API converted each chunk into a high-dimensional vector. Structured metadata was attached to each vector — doc_id, source, category, topic keywords, and chunk index for precise filtering. Automated upsert into Pinecone included duplicate detection and conflict resolution. Error handling covered API rate limits, malformed payloads, and failed uploads with retry logic and failure logging.",
+      result:
+        "The workflow transformed a static document library into a live, queryable semantic knowledge base. Retrieval switched from keyword matching to context-aware semantic search, dramatically improving result relevance. The pipeline processed large document batches automatically with no manual steps, and the structured metadata layer enabled precise filtering in downstream retrieval workflows.",
+    },
   },
   {
     title: "Supabase Metadata & Structured Data Layer",
     tags: ["n8n", "Supabase", "PostgreSQL"],
     description:
       "Designed a structured metadata layer alongside Pinecone for full pipeline observability — tracking every document's processing status, entity mappings, and audit trail.",
+    image: supabaseImg,
+    caseStudy: {
+      problem:
+        "As AI pipeline complexity grew, storing and retrieving structured metadata alongside vector data became a bottleneck. Pinecone handles embeddings well, but relational metadata — document relationships, processing status, audit trails, and entity mappings — needed a separate, queryable layer. Without it, pipeline debugging, filtering, and downstream reporting were slow and error-prone.",
+      built:
+        "I designed a Supabase-backed metadata layer that works alongside Pinecone as a complementary structured data store. Automated metadata writes on every document processed stored doc_id, source, category, processing status, timestamps, and chunk counts into structured Supabase tables. REST API integration between n8n and Supabase enabled real-time reads and writes without manual database access. Status tracking logic updated records across pipeline stages — ingested, processed, embedded, failed — enabling easy monitoring and reprocessing. Entity and alias tables stored normalized subject–relation–object triples and source mappings for Graph RAG enrichment.",
+      result:
+        "The metadata layer gave the pipeline full observability — every document's journey through the system was tracked, queryable, and auditable. Debugging dropped from hours to minutes. The structured data also enabled smarter Pinecone filtering downstream, improving retrieval precision and reducing noise in AI responses.",
+    },
   },
   {
     title: "VAPI x Supabase — AI Voice Agent Integration",
     tags: ["VAPI", "Supabase", "n8n", "Webhooks"],
     description:
       "Connected a VAPI voice AI to a live Supabase backend, enabling dynamic real-time data lookup during calls and automated write-back of call outcomes to CRM.",
+    image: vapiSupabaseImg,
+    caseStudy: {
+      problem:
+        "A client wanted to deploy an AI voice agent using VAPI that could handle inbound calls and answer questions based on live business data — but their data lived in Supabase with no connection to the voice layer. Without integration, the voice agent could only give generic responses and couldn't access current records, appointment data, or customer information in real time.",
+      built:
+        "I built a real-time integration layer connecting VAPI's voice AI to a Supabase backend via n8n. A webhook-based trigger system routes VAPI call events — call start, mid-call function calls, and call end — into n8n for processing. Dynamic data lookup workflows query Supabase in real time based on caller context and return structured responses to VAPI. Write-back logic automatically writes post-call summaries, outcomes, and action items back into Supabase, updating CRM records without manual entry. Error handling and fallback responses ensure the voice agent always has a graceful response when lookups fail.",
+      result:
+        "The voice agent moved from generic scripted responses to dynamic, data-aware conversations — accessing live Supabase records during calls and updating them automatically after. Call handling became fully automated for common inquiry types, reducing the need for human agents on routine interactions and ensuring all call data was captured and structured for reporting.",
+    },
   },
   {
     title: "Lead Generation Automation with Apify",
     tags: ["n8n", "Apify", "Go High Level", "Airtable"],
     description:
       "Built a fully automated lead sourcing pipeline — scraping, cleaning, enriching, and delivering qualified leads directly into CRM on a set schedule with no manual steps.",
+    image: leadGenerationImg,
+    caseStudy: {
+      problem:
+        "A client's sales team was spending hours manually sourcing leads — visiting directories, copying contact data into spreadsheets, and manually entering records into their CRM. The process was slow, inconsistent, and pulled salespeople away from actual selling. They needed a repeatable, automated system that could source, clean, and deliver qualified leads directly into their pipeline without manual effort.",
+      built:
+        "I built an end-to-end lead generation automation using Apify as the scraping layer and n8n as the orchestration engine. Apify Actors were configured for targeted scraping — pulling leads from relevant directories based on configurable filters for location, industry, and company size. A data cleaning and normalization layer in n8n handled deduplication, field standardization, and validation. An enrichment layer cross-referenced scraped data to fill gaps in contact information. Clean leads were pushed automatically into Go High Level or Airtable with correct pipeline stage, tags, and owner assignment. A Google Sheets output option was included for clients who preferred a review step before CRM import. Scheduling logic ran scraping jobs on a defined cadence, delivering fresh leads automatically.",
+      result:
+        "The sales team went from spending 3–4 hours per week on manual lead sourcing to receiving a curated, deduplicated lead list automatically delivered to their CRM on schedule. Lead data quality improved through consistent validation, and sales reps could focus entirely on outreach and closing instead of data entry.",
+    },
   },
 ];
 
