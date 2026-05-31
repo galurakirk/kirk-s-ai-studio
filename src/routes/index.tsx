@@ -415,7 +415,7 @@ function Portfolio() {
             >
               <h3 className="text-base font-semibold leading-snug">{p.title}</h3>
               <div className="mt-3 flex flex-wrap gap-1.5">
-                {p.tags.map((t) => (
+                {p.tags.map((t: string) => (
                   <span
                     key={t}
                     className="rounded-md border border-primary/30 bg-primary/10 px-2 py-0.5 font-mono text-[10px] text-primary-glow"
