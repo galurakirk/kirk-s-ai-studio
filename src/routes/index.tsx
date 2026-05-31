@@ -426,7 +426,7 @@ function Portfolio() {
               </div>
               <p className="mt-4 flex-1 text-sm leading-relaxed text-muted-foreground">{p.description}</p>
               <button
-                onClick={() => setModal(p.title)}
+                onClick={() => setModal(p)}
                 className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-primary-glow transition group-hover:gap-2.5"
               >
                 View Case Study <ArrowRight className="h-3.5 w-3.5" />
