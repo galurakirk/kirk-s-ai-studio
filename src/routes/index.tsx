@@ -267,7 +267,15 @@ function Portfolio() {
                 <p className="mt-1 text-sm text-primary-glow">
                   {e.role} · <span className="text-muted-foreground">{e.location}</span>
                 </p>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{e.description}</p>
+                {"bullets" in e && e.bullets ? (
+                  <ul className="mt-3 list-disc space-y-2 pl-4 text-sm leading-relaxed text-muted-foreground">
+                    {e.bullets.map((b, i) => (
+                      <li key={i}>{b}</li>
+                    ))}
+                  </ul>
+                ) : (
+                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{e.description}</p>
+                )}
               </div>
             </li>
           ))}
