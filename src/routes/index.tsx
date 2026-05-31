@@ -4,9 +4,15 @@ import profilePic from "@/assets/profile-placeholder.jpg";
 import { Nav } from "@/components/portfolio/Nav";
 import { Particles } from "@/components/portfolio/Particles";
 import { Typewriter } from "@/components/portfolio/Typewriter";
-import { ProjectModal } from "@/components/portfolio/ProjectModal";
+import { ProjectModal, type Project } from "@/components/portfolio/ProjectModal";
 import { useReveal } from "@/hooks/use-reveal";
 import { Mail, MapPin, Linkedin, ArrowRight, Briefcase, GraduationCap, Award, Send } from "lucide-react";
+import ragAgentImg from "@/assets/projects/rag-agent.png";
+import ingestPipelineImg from "@/assets/projects/ingest-pipeline.png";
+import preprocessingPineconeImg from "@/assets/projects/preprocessing-pinecone.png";
+import supabaseImg from "@/assets/projects/supabase.png";
+import vapiSupabaseImg from "@/assets/projects/vapi-supabase.jpeg";
+import leadGenerationImg from "@/assets/projects/lead-generation.jpeg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
