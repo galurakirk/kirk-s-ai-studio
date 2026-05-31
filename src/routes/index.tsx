@@ -515,7 +515,7 @@ function Portfolio() {
         </div>
       </footer>
 
-      <ProjectModal open={!!modal} onClose={() => setModal(null)} title={modal ?? ""} />
+      <ProjectModal open={!!modal} onClose={() => setModal(null)} project={modal} />
     </div>
   );
 }
