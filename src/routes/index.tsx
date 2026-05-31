@@ -226,7 +226,7 @@ const navLinks = [
 
 function Portfolio() {
   useReveal();
-  const [modal, setModal] = useState<string | null>(null);
+  const [modal, setModal] = useState<Project | null>(null);
 
   return (
     <div id="top" className="relative min-h-screen bg-background text-foreground">
