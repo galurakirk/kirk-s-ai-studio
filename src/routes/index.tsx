@@ -1,12 +1,12 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import profilePic from "@/assets/profile-placeholder.jpg";
+import profilePic from "@/assets/kirk-profile.jpg";
 import { Nav } from "@/components/portfolio/Nav";
 import { Particles } from "@/components/portfolio/Particles";
 import { Typewriter } from "@/components/portfolio/Typewriter";
 import { ProjectModal, type Project } from "@/components/portfolio/ProjectModal";
 import { useReveal } from "@/hooks/use-reveal";
-import { Mail, MapPin, Linkedin, ArrowRight, Briefcase, GraduationCap, Award, Send } from "lucide-react";
+import { Mail, MapPin, Linkedin, ArrowRight, Briefcase, GraduationCap, Award, Send, BadgeCheck } from "lucide-react";
 import ragAgentImg from "@/assets/projects/rag-agent.png";
 import ingestPipelineImg from "@/assets/projects/ingest-pipeline.png";
 import preprocessingPineconeImg from "@/assets/projects/preprocessing-pinecone.png";
@@ -299,12 +299,12 @@ function Portfolio() {
                 <MapPin className="h-4 w-4" /> Bacolor, Pampanga, Philippines
               </span>
               <a
-                href="https://linkedin.com/in/kirk-galura-19a820236"
+                href="https://linkedin.com/in/kirk-ludwig-galura-19a820236"
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex items-center gap-2 hover:text-primary-glow"
               >
-                <Linkedin className="h-4 w-4" /> linkedin.com/in/kirk-galura-19a820236
+                <Linkedin className="h-4 w-4" /> linkedin.com/in/kirk-ludwig-galura-19a820236
               </a>
             </div>
           </div>
@@ -389,17 +389,30 @@ function Portfolio() {
       {/* CERTIFICATES */}
       <Section id="certificates" eyebrow="05" title="Certificates & Credentials">
         <div className="grid gap-5 md:grid-cols-3">
-          {Array.from({ length: 6 }).map((_, i) => (
-            <div
-              key={i}
-              className="reveal rounded-xl border border-border bg-surface p-6 transition hover:border-primary/40 hover:bg-surface-elevated"
-            >
-              <div className="mb-4 inline-flex rounded-lg bg-primary/15 p-2 text-primary-glow">
+          <div className="reveal rounded-xl border border-primary/40 bg-surface p-6 transition hover:border-primary/60 hover:bg-surface-elevated">
+            <div className="mb-4 flex items-center justify-between">
+              <div className="inline-flex rounded-lg bg-primary/15 p-2 text-primary-glow">
                 <Award className="h-5 w-5" />
               </div>
-              <h3 className="text-base font-semibold">Certificate Name</h3>
-              <p className="mt-1 text-sm text-muted-foreground">Issuing Organization</p>
-              <p className="mt-3 font-mono text-xs text-muted-foreground">Date</p>
+              <span className="inline-flex items-center gap-1 rounded-full border border-primary/40 bg-primary/10 px-2 py-0.5 font-mono text-[10px] text-primary-glow">
+                <BadgeCheck className="h-3 w-3" /> Verified
+              </span>
+            </div>
+            <h3 className="text-base font-semibold">Airtable AI App Builder</h3>
+            <p className="mt-1 text-sm text-muted-foreground">Airtable</p>
+            <p className="mt-3 font-mono text-xs text-muted-foreground">Valid: May 27, 2026 – June 27, 2028</p>
+            <p className="mt-1 font-mono text-[11px] text-muted-foreground/80">Cert No.: 748nrj44pa7r</p>
+          </div>
+          {Array.from({ length: 5 }).map((_, i) => (
+            <div
+              key={i}
+              className="reveal rounded-xl border border-border/50 bg-surface/40 p-6 opacity-60"
+            >
+              <div className="mb-4 inline-flex rounded-lg bg-muted/30 p-2 text-muted-foreground">
+                <Award className="h-5 w-5" />
+              </div>
+              <h3 className="text-base font-semibold text-muted-foreground">Coming Soon</h3>
+              <p className="mt-1 text-sm text-muted-foreground/80">More certifications in progress</p>
             </div>
           ))}
         </div>
@@ -452,13 +465,13 @@ function Portfolio() {
                 <span className="text-sm font-medium">galurakirk@gmail.com</span>
               </a>
               <a
-                href="https://linkedin.com/in/kirk-galura-19a820236"
+                href="https://linkedin.com/in/kirk-ludwig-galura-19a820236"
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex items-center gap-3 rounded-lg border border-border bg-surface px-5 py-4 transition hover:border-primary/40 hover:bg-surface-elevated"
               >
                 <Linkedin className="h-5 w-5 text-primary-glow" />
-                <span className="text-sm font-medium">linkedin.com/in/kirk-galura-19a820236</span>
+                <span className="text-sm font-medium">linkedin.com/in/kirk-ludwig-galura-19a820236</span>
               </a>
             </div>
           </div>
@@ -510,6 +523,16 @@ function Portfolio() {
                 <a href={l.href} className="hover:text-foreground">{l.label}</a>
               </li>
             ))}
+            <li>
+              <a
+                href="https://linkedin.com/in/kirk-ludwig-galura-19a820236"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-1 hover:text-foreground"
+              >
+                <Linkedin className="h-3.5 w-3.5" /> LinkedIn
+              </a>
+            </li>
           </ul>
           <p className="text-xs text-muted-foreground">© 2026 Kirk Ludwig Galura</p>
         </div>
