@@ -276,11 +276,11 @@ function Portfolio() {
 
       {/* ABOUT */}
       <Section id="about" eyebrow="01" title="About Me">
-        <div className="grid items-center gap-12 md:grid-cols-[280px_1fr]">
-          <div className="reveal mx-auto h-56 w-56 overflow-hidden rounded-full border border-border bg-surface p-1 md:mx-0">
-            <img src={profilePic} alt="Kirk" width={512} height={512} loading="lazy" className="h-full w-full rounded-full object-cover" />
+        <div className="grid items-center gap-10 md:grid-cols-[260px_1fr] md:gap-14">
+          <div className="reveal mx-auto h-48 w-48 shrink-0 overflow-hidden rounded-full border border-border bg-surface p-1 sm:h-56 sm:w-56 md:mx-0">
+            <img src={profilePic} alt="Kirk Ludwig Galura" width={512} height={512} loading="lazy" className="h-full w-full rounded-full object-cover" />
           </div>
-          <div className="reveal space-y-5 text-base leading-relaxed text-muted-foreground md:text-lg">
+          <div className="reveal min-w-0 space-y-5 text-base leading-relaxed text-muted-foreground md:text-lg">
             <p>
               I'm an AI Automation Specialist with 3+ years of experience building end-to-end
               workflow systems for clients worldwide. My work sits at the intersection of n8n,
@@ -555,7 +555,7 @@ function Section({
   children: React.ReactNode;
 }) {
   return (
-    <section id={id} className="mx-auto max-w-6xl scroll-mt-24 px-6 py-20 md:py-28">
+    <section id={id} className="mx-auto max-w-6xl scroll-mt-24 px-6 py-28 md:py-36">
       <div className="reveal mb-12 flex items-end justify-between gap-4">
         <div>
           <p className="mb-2 font-mono text-xs uppercase tracking-[0.2em] text-primary-glow">
