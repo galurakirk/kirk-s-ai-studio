@@ -272,6 +272,14 @@ function Portfolio() {
             >
               Contact Me
             </a>
+            <a
+              href="https://drive.google.com/file/d/1jMvbSTnQo4xN9gvNJEyQc1Y-wIEQTUMi/view?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-full border border-border bg-surface/50 px-6 py-3 text-sm font-medium text-foreground backdrop-blur transition hover:bg-surface"
+            >
+              Download CV
+            </a>
           </div>
         </div>
       </section>
